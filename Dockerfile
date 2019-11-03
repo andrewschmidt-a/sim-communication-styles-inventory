@@ -19,7 +19,7 @@ RUN echo "Installing web server..." \
  && rm -rf /var/cache/apk /etc/apk /lib/apk
 WORKDIR /app
 
-EXPOSE 10080
+EXPOSE 80
 VOLUME /app/logs
 
 COPY --from=build /src/index.html ./src/
