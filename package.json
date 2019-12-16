@@ -28,7 +28,6 @@
     "svelte": "^3.9.1",
     "svelte-loader": "^2.13.6",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
-    "serialize-javascript": ">=2.1.1"
+    "webpack-cli": "^3.3.7"
   }
 }
