@@ -230,7 +230,9 @@ let answer_key = [
 {#if begin}
 <Card style="width: 80%; margin-left: 10%;">
     <Content class="mdc-typography--body2" style="display">
-
+    {#if page < 40}
+        <p>{page+1}/40</p>
+    {/if}
         <div>
         {#if page < 40}
         <FormField>
