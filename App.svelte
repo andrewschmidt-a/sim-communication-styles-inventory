@@ -12,7 +12,7 @@
   let begin = false;
   let page = 0;
   let questions = [
-    {"A":"I like action and ice cream (butter brittle)","B":"I deal with problems in a systematic way"},
+    {"A":"I like action","B":"I deal with problems in a systematic way"},
     {"A":"I enjoy change very much","B":"I believe that teams are more effective than individuals"},
     {"A":"I enjoy working with people","B":"I am more interested in the future than the past"},
     {"A":"Deadlines are important for me","B":"I like to attend well organized group meetings"},
@@ -216,7 +216,8 @@ let answer_key = [
  {#if !begin}
 <Card style="width: 80%; margin-left: 10%;">
     <Content class="mdc-typography--body2" style="display">
-        <p>This is how you access your personality. It will define the rest of your life so answer carefully. </p>
+        <p><center><strong>Communication Style Inventory</strong></center> </p>
+        <p><left>This application is designed to help you discover your preferred communication style. You will be presented with 40 pairs of statements.  In each pair, select the statement that is most true of you.  Sometimes both statements will be true.  Sometimes neither will be exactly descriptive of you.  Pick the statement that is most true. Your score and communication style preference will appear at the end.</left> </p>
         
         <center>
             <Button on:click={()=> begin = true}>
