@@ -9,12 +9,10 @@
   let calculate_side = (c) =>  Math.sqrt(Math.pow(c, 2)/2)
 
 
-  function doAction(action) {
-    alert('You did an action: '+action);
-  }
+  let begin = false;
   let page = 0;
   let questions = [
-    {"A":"I like action","B":"I deal with problems in a systematic way"},
+    {"A":"I like action and ice cream (butter brittle)","B":"I deal with problems in a systematic way"},
     {"A":"I enjoy change very much","B":"I believe that teams are more effective than individuals"},
     {"A":"I enjoy working with people","B":"I am more interested in the future than the past"},
     {"A":"Deadlines are important for me","B":"I like to attend well organized group meetings"},
@@ -99,8 +97,8 @@ let answers = [
 ]
 
 let answer_key = [
-    {"A":"Action","B":"Process"},
-    {"A":"Ideas","B":"People"},
+    {"A":"Action","B":"Process"}, // Q1
+    {"A":"Ideas","B":"People"},  // Q2
     {"A":"People","B":"Ideas"},
     {"A":"Action","B":"Process"},
     {"A":"Action","B":"Process"},
@@ -199,7 +197,7 @@ let answer_key = [
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Communication Styles Inventory</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
@@ -215,11 +213,24 @@ let answer_key = [
 <Slider bind:value="{people}" min={0} max={12} step={1} /> -->
 
 <br>
- 
+ {#if !begin}
+<Card style="width: 80%; margin-left: 10%;">
+    <Content class="mdc-typography--body2" style="display">
+        <p>This is how you access your personality. It will define the rest of your life so answer carefully. </p>
+        
+        <center>
+            <Button on:click={()=> begin = true}>
+              <Label>Begin</Label>
+            </Button>
+        </center>
+    </Content>
+</Card>
+{/if}
+{#if begin}
 <Card style="width: 80%; margin-left: 10%;">
     <Content class="mdc-typography--body2" style="display">
 
-        <center>
+        <div>
         {#if page < 40}
         <FormField>
             <Radio bind:group={answers[page]} bind:value={answer_key[page]["A"]} />
@@ -268,7 +279,7 @@ let answer_key = [
             </g>
         </svg>
         {/if}
-        </center>
+        </div>
     </Content>
   <Actions>
     <ActionButtons>
@@ -279,3 +290,4 @@ let answer_key = [
     </ActionIcons>
   </Actions>
 </Card>
+{/if}
